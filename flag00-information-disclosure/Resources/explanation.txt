@@ -1,0 +1,8 @@
+Sensitive information was accessible without any authentication through a publicly
+available resource of the web application.
+
+This information should not be exposed to users, as it can be accessed directly by
+anyone knowing or discovering its location.
+
+This represents a security issue because exposing sensitive data may help an attacker
+gather information and prepare further attacks.
