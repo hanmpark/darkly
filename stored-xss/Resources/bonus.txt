@@ -1,0 +1,11 @@
+This vulnerability is a Cross-Site Scripting issue caused by the lack of server-side
+input sanitization on user-submitted data.
+
+Even if no script execution is visibly triggered, accepting unfiltered input allows
+attackers to inject malicious payloads using different HTML or JavaScript vectors.
+
+In real-world applications, stored XSS vulnerabilities can be exploited to steal user
+sessions, perform unauthorized actions, or compromise accounts.
+
+To prevent this issue, user input must be properly escaped before being rendered, and
+dangerous content should be filtered server-side.
