@@ -1,0 +1,12 @@
+This vulnerability occurs because the application relies on client-side controls, such
+as select fields, to restrict user input.
+
+An attacker can easily bypass these controls by modifying the request before it is sent
+to the server. If the server does not validate the received value, it may process invalid
+or malicious input.
+
+In real-world applications, this can lead to logic bypasses, unauthorized actions, or
+unexpected behavior.
+
+To prevent this issue, all user input must be validated server-side, even if it appears
+restricted in the user interface.
