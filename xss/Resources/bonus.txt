@@ -1,0 +1,12 @@
+This XSS vulnerability occurs because user input is directly reflected into the HTML
+content without proper encoding or sanitization.
+
+The application embeds the user-controlled value inside an object tag, which allows
+the execution of HTML content provided through data URIs. This enables an attacker to
+inject and execute arbitrary JavaScript code in the context of the page.
+
+In real-world applications, XSS vulnerabilities can be exploited to steal session
+cookies, perform actions on behalf of users, or compromise accounts.
+
+To prevent this vulnerability, user input must be properly escaped depending on the
+HTML context, and dangerous tags such as object should be avoided or strictly restricted.

@@ -1,0 +1,12 @@
+The vulnerability was found on a page where a user-controlled parameter is reflected
+inside an HTML object tag.
+
+By modifying the parameter value, it was observed that the input was inserted into the
+"data" attribute of an object element without any sanitization.
+
+Since the object tag allows loading data URIs, it was possible to inject a base64-encoded
+HTML payload containing JavaScript code. When the page was loaded, the browser executed
+the injected script, resulting in the flag being returned.
+
+This is a reflected Cross-Site Scripting (XSS) vulnerability caused by improper handling
+of user input.
