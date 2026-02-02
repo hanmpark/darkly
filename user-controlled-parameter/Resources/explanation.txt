@@ -1,0 +1,9 @@
+The vulnerability was found in the footer of the page, where links to social media
+platforms were present.
+
+The destination of one of these links was controlled by a user-accessible value.
+By modifying this value, it was possible to trigger unintended behavior and retrieve
+the flag.
+
+This represents a security issue because user-controlled values must not be trusted
+without server-side validation.
