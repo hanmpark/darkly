@@ -1,8 +1,11 @@
-Sensitive information was accessible without any authentication through a publicly
-available resource of the web application.
+The vulnerability was found on the password recovery page.
 
-This information should not be exposed to users, as it can be accessed directly by
-anyone knowing or discovering its location.
+No visible input field was present on the page, but by inspecting the HTML source, a
+hidden input field containing a sensitive email address was discovered.
 
-This represents a security issue because exposing sensitive data may help an attacker
-gather information and prepare further attacks.
+This value could be modified directly by the user and submitted to the server without
+any server-side verification. By changing this hidden field, it was possible to retrieve
+the flag.
+
+This represents a security issue because hidden inputs are controlled by the client and
+must never be trusted to handle sensitive information.
