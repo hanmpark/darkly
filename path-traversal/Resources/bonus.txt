@@ -1,0 +1,13 @@
+This vulnerability occurs because the application relies on a user-controlled parameter
+to determine which file should be loaded, without validating or sanitizing the provided
+path.
+
+An attacker can exploit this by using directory traversal sequences to navigate outside
+of the intended directory and read sensitive system files.
+
+In real-world applications, Path Traversal vulnerabilities can lead to the disclosure of
+configuration files, credentials, or other sensitive information.
+
+To prevent this issue, applications should restrict file access to a specific directory,
+normalize and validate paths before use, and rely on strict allow-lists instead of direct
+user input.
