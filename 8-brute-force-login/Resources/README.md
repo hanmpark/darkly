@@ -10,6 +10,8 @@ or account lockout.
 By testing common credential combinations, valid credentials were discovered and used to
 log into the application, which resulted in the flag being returned.
 
+![found credentials](image.png)
+
 This is a security issue because weak credentials combined with unlimited attempts make
 accounts easy to compromise.
 
