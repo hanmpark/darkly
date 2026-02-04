@@ -1,8 +1,0 @@
-The vulnerability was found on the survey page, where a select field restricts the user
-to predefined values in the browser.
-
-By manually modifying the value of this field, it was possible to submit an unexpected
-value that was accepted by the server and resulted in the flag being returned.
-
-This represents a security issue because client-side restrictions can be bypassed and
-must not be trusted without server-side validation.

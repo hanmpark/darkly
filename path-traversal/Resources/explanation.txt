@@ -1,9 +1,0 @@
-The vulnerability was found in a page parameter that is used by the application to load
-files dynamically.
-
-By modifying the "page" parameter and injecting traversal sequences such as "../../",
-it was possible to escape the intended directory and access arbitrary files on the
-server, including "/etc/passwd", which led to the flag.
-
-This represents a Path Traversal vulnerability, as user-controlled input is used directly
-to access files without proper validation or restriction.

@@ -1,9 +1,0 @@
-The vulnerability was found on the feedback page, where user input from the name and
-message fields is accepted and processed without proper sanitization.
-
-By submitting the keyword "script", it was confirmed that the application does not
-filter potentially dangerous input. The server accepts and reflects user input without
-validation, which leads to a Cross-Site Scripting vulnerability.
-
-This represents a security issue because malicious JavaScript code could be injected
-and executed in the context of the page.
