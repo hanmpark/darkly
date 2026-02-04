@@ -2,7 +2,7 @@
 import { readFile } from "node:fs/promises";
 
 const CONFIG = {
-  listAFile: "users.txt",
+  listAFile: "usernames.txt",
   listBFile: "passwords.txt",
   baseUrl: "http://10.11.200.34/"
 };

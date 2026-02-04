@@ -3,7 +3,7 @@
 The vulnerability was found on the **login page**.
 
 Authentication could be bypassed by performing a credential brute-force attack using
-lists of **common** **usernames** and common **passwords**. The application allowed a large number
+lists of **common** **usernames** (`usernames.txt`) and common **passwords** (`passwords.txt`). The application allowed a large number
 of login attempts without effective protections such as rate limiting, delays, CAPTCHA,
 or account lockout.
 
