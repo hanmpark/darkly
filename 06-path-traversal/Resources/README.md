@@ -6,7 +6,7 @@ files dynamically.
 By modifying the "page" parameter and injecting traversal sequences such as "../../",
 
 ```
-http://10.11.200.34/index.php?page=../../../../../../../etc/passwd
+http://x.x.x.x/index.php?page=../../../../../../../etc/passwd
 ```
 
 it was possible to escape the intended directory and access arbitrary files on the

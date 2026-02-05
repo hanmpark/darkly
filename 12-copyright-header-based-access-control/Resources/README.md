@@ -18,7 +18,7 @@ accordingly, it was possible to access the page content and retrieve the flag.
 $ curl \
   -H "Referer: https://www.nsa.gov/" \
   -H "User-Agent: ft_bornToSec" \
-  "http://10.11.200.34/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f" > index.html
+  "http://x.x.x.x/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f" > index.html
 ```
 
 This represents a security issue because the application relies on client-controlled HTTP
