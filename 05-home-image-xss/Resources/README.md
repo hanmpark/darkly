@@ -9,7 +9,7 @@ By inspecting this anchor tag, it was observed that the value of its "src" param
 passed to the next page and reused to populate the "data" attribute of an HTML object
 element.
 
-![redirected page](image.png)
+![redirected page](redirected.png)
 
 After confirming that the value provided in the anchor tag was reflected directly inside
 the object tag without sanitization (put `'/'` in the `src` and you'll see the home page inside that redirected page), it was possible to control the content loaded by the
@@ -17,7 +17,7 @@ object.
 
 By supplying a data URI containing a base64-encoded HTML payload:
 ```bash
-$ echo "<script>alert(yes)</script>" | base64
+$ echo "<script>alert(hello)</script>" | base64
 PHNjcmlwdD5hbGVydChoZWxsbyk8L3NjcmlwdD4K
 
 # so for the src attribute of the anchor tag I put:
