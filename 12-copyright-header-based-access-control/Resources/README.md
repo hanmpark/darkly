@@ -36,5 +36,14 @@ In real-world applications, this can lead to unauthorized access to protected re
 if sensitive logic depends on request metadata instead of proper authentication or
 authorization mechanisms.
 
-To prevent this issue, access control must be enforced server-side using authentication,
-sessions, or tokens, and never rely on client-supplied headers for security decisions.
+To prevent this issue, do **not** use `Referer` or `User-Agent` to decide whether a user is allowed to view a page, because the client can fake those headers.
+
+Instead, enforce access **on the server** with proper mechanisms such as:
+
+- **Authentication** (login)
+- **Sessions/cookies** managed by the server
+- **Tokens** (e.g., signed tokens)
+
+Then, protect sensitive pages with **authorization checks** (for example, role-based access control) before returning the content.
+
+`Referer` and `User-Agent` can still be used for **logging/monitoring**, but only as _informational signals_, never as security gates. Also, keep **audit logs** of access/deny decisions to help investigate incidents.

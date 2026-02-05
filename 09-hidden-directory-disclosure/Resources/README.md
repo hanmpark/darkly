@@ -21,5 +21,7 @@ under a publicly accessible path (`/.hidden`).
 Even if the content looks harmless, exposing deep directory structures and README files
 can leak secrets, internal notes, credentials, or hints that enable further attacks.
 
-To prevent this, disable directory listing, restrict access to internal paths, and ensure
-that sensitive files (such as `README/debug files`) are not deployed in the web root.
+To prevent this issue, disable directory indexing and block access to internal or hidden
+paths by default. Remove development artifacts (README notes, backups, scripts) from
+production builds, and keep internal content separate from public assets. Add routine
+deployment checks and security scans to detect accidentally exposed directories.

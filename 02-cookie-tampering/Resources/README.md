@@ -28,6 +28,7 @@ In real-world applications, this can lead to full privilege escalation, access t
 restricted areas, and unauthorized actions.
 
 To prevent this issue, authorization must be enforced server-side using sessions and
-server-side checks. If a token is stored in a cookie, it must be a secure, server-issued
-session identifier, and the server must determine the user's role from its own database,
-not from a client-controlled value.
+server-side checks. Cookies should contain only opaque session identifiers (or signed
+tokens), never role flags, and must use `HttpOnly`, `Secure`, and `SameSite` attributes.
+The server must derive privileges from trusted data on each request and rotate session
+tokens after login and privilege changes.

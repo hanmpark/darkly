@@ -24,5 +24,7 @@ will send the same manipulated request.
 In real applications, this can lead to open redirects (phishing) or abuse of server-side
 logic if the parameter is used to choose pages or actions.
 
-To prevent this, the server should validate parameters using an allow-list of accepted
-values or use a server-side mapping instead of trusting user input directly.
+To prevent this issue, avoid using raw request parameters as redirect URLs or action
+selectors. Use a server-side mapping of trusted IDs to allowed destinations, and reject
+any value outside the allow-list. For external redirects, restrict targets to trusted
+domains and display an interstitial confirmation page to reduce phishing risk.

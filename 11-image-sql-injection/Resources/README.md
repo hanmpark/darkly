@@ -11,9 +11,7 @@ mapped to understand how injected data was rendered in the page.
 5 ORDER BY 3 --
 ```
 
-```sql
--1 UNION SELECT 111, 222 --
-```
+Same thing as for the `10-member-sql-injection` we know there are already both columns displayed in the UI.
 
 Using this injection point, it was possible to enumerate the database schema through the
 information_schema tables, which revealed the existence of a table named `list_images`
@@ -50,5 +48,8 @@ generate the flag.
 In real-world applications, such vulnerabilities can lead to full database compromise,
 credential leakage, and exposure of sensitive business logic.
 
-To mitigate this issue, prepared statements must be used, input types must be strictly
-validated, and detailed database errors should never be exposed to users.
+To prevent this issue, use prepared statements for every query (including search
+features) and treat user input strictly as data. Validate parameters against expected
+format and length before they reach the database layer, and hide detailed SQL errors
+from users. Restrict database permissions and monitor for suspicious patterns such as
+`UNION` or `information_schema` access attempts.

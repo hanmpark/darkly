@@ -27,5 +27,8 @@ or malicious input.
 In real-world applications, this can lead to logic bypasses, unauthorized actions, or
 unexpected behavior.
 
-To prevent this issue, all user input must be validated server-side, even if it appears
-restricted in the user interface.
+To prevent this issue, treat client-side validation as a usability feature only and
+revalidate every field on the server with strict type, range, and allow-list checks.
+Reject unexpected values, return safe error messages, and log invalid attempts. For
+sensitive actions, centralize validation in backend code so the same rules apply to all
+clients (web, API, mobile).

@@ -24,4 +24,8 @@ In real-world applications, stored XSS vulnerabilities can be exploited to steal
 sessions, perform unauthorized actions, or compromise accounts.
 
 To prevent this issue, user input must be properly escaped before being rendered, and
-dangerous content should be filtered server-side.
+dangerous content should be filtered server-side with a trusted sanitizer. Apply
+context-aware output encoding (HTML, attributes, URLs, JavaScript) everywhere content is
+rendered, and treat rich text as plain text unless explicitly required. Add a strict
+Content Security Policy and secure cookie settings to reduce impact if any XSS bypasses
+input filtering.

@@ -39,5 +39,8 @@ instructions to search engines.
 Sensitive directories must not be protected by hiding them in robots.txt, as this file
 is publicly accessible and can reveal valuable information to attackers.
 
-Access control must always be enforced server-side using proper permissions or
-authentication, and sensitive files should never be stored inside the web root.
+To prevent this issue, keep sensitive files (such as `.htpasswd`, backups, and config
+files) outside the web root and block direct HTTP access with web server rules. Access
+control must always be enforced server-side with proper authentication and authorization,
+and `robots.txt` must never be treated as a protection layer. Add periodic scans of
+deployed content to detect accidentally exposed files early.

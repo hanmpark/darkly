@@ -27,5 +27,8 @@ more complex attacks.
 In a real-world environment, this type of issue is often the result of forgotten files,
 debug resources, or misconfigured web servers.
 
-To prevent this vulnerability, sensitive resources should not be publicly accessible
-and must be protected by proper access control or removed from the production environment.
+To prevent this issue, never expose sensitive values (emails, tokens, internal paths)
+in client-visible HTML or publicly reachable files. Keep recovery logic server-side,
+protect related endpoints with authentication and authorization, and separate public
+assets from private data. Add deployment checks (secret scanning and file audits) to
+catch debug artifacts before they reach production.
