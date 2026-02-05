@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 const CONFIG = {
   listAFile: "usernames.txt",
   listBFile: "passwords.txt",
-  baseUrl: "http://10.11.200.34/"
+  baseUrl: "http://x.x.x.x/"
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
